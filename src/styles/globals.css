@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.sticker-container {
+  position: relative;
+  display: inline-block;
+}
+
+.sticker-image {
+  border-radius: 50%;
+  border: 3px solid white;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+.sticker-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  filter: blur(5px);
+  z-index: -1;
+}
+
+.sticker-container::after {
+  content: "";
+  position: absolute;
+  top: -5%;
+  left: -5%;
+  right: -5%;
+  bottom: -5%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0) 50%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+}
